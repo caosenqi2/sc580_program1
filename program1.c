@@ -56,7 +56,8 @@ int promColor(int rgb_val){
     int red = (rgb_val & 0xFF0000) >> 16;
     int green = (rgb_val & 0x00FF00) >> 8;
     int blue = rgb_val & 0x0000FF;
-    int prominent = fmaxf(fmaxf(red, green), blue);
+    int tmp = fmax(red, green);
+    int prominent = fmax(tmp, blue);
     
     if (prominent == red & red != green & red != blue) return 1;
     else if (prominent == green & green != blue & green != red) return 2;
